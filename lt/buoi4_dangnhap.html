@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>đăng nhập</title>
+</head>
+
+<body>
+	<h3>Vui lòng đăng nhập để tiếp tục sử dụng!</h3>
+	<br>
+	<form action="dangnhap_buoi5.php" method="post" onsubmit="return baoloi()">
+	<table>
+		<tr>
+			<td> <label for="tendangnhap">Tên đăng nhập:</label><P></p></td>
+			<td><input type="text" name="ten" id="tendangnhap"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><P id="user"></p></td>
+		</tr>
+		<tr>
+			<td><label for="mk">Mật khẩu:</label><P></p></td>
+			<td><input type="password" name="matkhau" id="mk"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><P id="pass"></p></td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="Đăng nhập"></td>
+			<td><input type="reset" value="Nhập lại"></td>
+		</tr>
+	</table>
+	</form>
+<a href="buoi5.php">Trở về trang chủ</a>
+
+<script>
+function baoloi(){
+check=true;
+if(document.getElementById("tendangnhap").value=="") 
+{
+document.getElementById("user").innerHTML="Vui lòng nhập tên đăng nhập!";
+document.getElementById("user").style.color="red";
+check=false;
+}
+else document.getElementById("user").innerHTML="";
+if(document.getElementById("mk").value=="") 
+{
+document.getElementById("pass").innerHTML="Vui lòng nhập mật khẩu!";
+document.getElementById("pass").style.color="red";
+check=false;
+}
+else document.getElementById("pass").innerHTML="";
+return check;
+}
+</script>
+
+</body>
+</html>

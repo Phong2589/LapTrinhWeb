@@ -1,0 +1,210 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>đăng kí</title>
+<link rel="stylesheet" type="text/css" href="./dangki.css">
+</head>
+
+<body>
+	<h3 style="color:red;">Đăng kí tài khoản mới</h3>
+	<p>Vui lòng điền đầy đủ thông tin bên dưới để đăng kí tài khoản mới</p>
+	<table border="1" cellspacing="0" cellpadding="10">
+		<tr>
+			<td>
+				<form action="xuly.php" style="background-color: #DDD6D6" method="post" enctype="multipart/form-data" onsubmit="return thongbao()">
+				<table cellpadding="12">
+					<tr>
+						<td><label for="tendangnhap">Tên đăng nhập:</label></td>
+						<td><input type="text" name="ten" id="tendangnhap" onchange="ktten(this.value)"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><P id="user"></p></td>
+					</tr>
+					<tr>
+						<td><label for="matkhau">Mật khẩu:</label></td>
+						<td><input type="password" name="mk" id="matkhau"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><P id="pass"></p></td>
+					</tr>
+					<tr>	
+						<td><label for="matkhaugolai">Gõ lại mật khẩu:</label></td>
+						<td><input type="password" name="mkgolai" id="matkhaugolai"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><P id="repass"></p></td>
+					</tr>
+					<tr>
+						<td><label for="myfile1">Hình đại diện:</label></td>
+						<td><input type="file" name="myfile" id="myfile1"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><P id="file"></p></td>
+					</tr>
+					<tr>
+						<td><label for="gioitinh">Giới tính:</label></td>
+						<td>
+							<input type="radio" name="gioitinh" value="nam" checked>Nam
+							<input type="radio" name="gioitinh" value="nữ">Nữ
+							<input type="radio" name="gioitinh" value="khác">Khác
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><P id="gt"></p></td>
+					</tr>
+					<tr>
+					    <td><label>Nghề nghiệp</label></td>
+					    <td>
+					        <select name="nghe">
+					            <option value="học sinh">Học sinh</option>
+					            <option value="sinh viên">Sinh viên</option>
+					            <option value="giáo viên">Giáo viên</option>
+					            <option value="khác">Khác</option>
+					        </select>
+					    </td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><P id="nghe"></p></td>
+					</tr>
+					<tr>
+						<td><lalel>Sở thích:</lalel></td>
+						<td>
+							<input type="checkbox" name="danhsach[]" value="thể thao">Thể thao
+							<input type="checkbox" name="danhsach[]" value="du lịch">Du lịch
+							<input type="checkbox" name="danhsach[]" value="âm nhạc">Âm nhạc
+							<input type="checkbox" name="danhsach[]" value="thời trang">Thời trang
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><P id="st"></p></td>
+					</tr>
+					
+					<tr>
+						<td></td>
+						<td>
+							<input type="submit" value="Đăng kí" align="middle">
+							<input type="reset" value="Làm lại">
+						</td>
+					</tr>
+					
+					<tr>
+						<td></td>
+						<td><P id="thongbao"></p></td>
+					</tr>
+				</table>
+					
+				</form>
+			</td>
+		</tr>
+	</table>
+	
+	
+<script>
+check=true;
+
+function thongbao(){
+
+var tdn_reg=/^[A-Za-z][A-Za-z0-9]{5,}$/;
+var tdn = document.getElementById("tendangnhap").value;
+if(tdn_reg.test(tdn))
+{
+document.getElementById("user").innerHTML="";
+}
+else
+{
+if(tdn=="") 
+{
+document.getElementById("user").innerHTML="Vui lòng nhập tên đăng nhập!";
+}
+else
+{
+document.getElementById("user").innerHTML="Tên đăng nhập từ 6 kí tự và bắt đầu bằng chữ cái!";
+}
+check=false;
+}
+//mật khẩu
+//var mk_reg=/^[A-Za-z0-9]{6,15}$/;
+//var mk_reg=/^[0-9]+[A-Za-z]+[A-Za-z0-9]{4,13}$/;
+var mk_reg=/^(?=.*[A-Za-z])(?=.*[0-9])[A-Za-z0-9]{6,15}$/;
+var mk = document.getElementById("matkhau").value;
+
+if(mk_reg.test(mk))
+{
+document.getElementById("pass").innerHTML="";
+}
+else{
+if(mk=="") 
+{
+document.getElementById("pass").innerHTML="Vui lòng nhập mật khẩu!";
+}
+else
+{
+document.getElementById("pass").innerHTML="Mật khẩu bao gồm từ 6 đến 15 kí tự bao gồm chữ và số!";
+}
+check=false;
+}
+//mật khẩu gõ lại
+var mkgl=document.getElementById("matkhaugolai").value;
+if(mkgl=="")
+{
+document.getElementById("repass").innerHTML="Vui lòng nhập vào mật khẩu!";
+check=false;
+}
+else 
+{
+if(mk != mkgl)
+{
+document.getElementById("repass").innerHTML="Mật khẩu sai! Vui lòng nhập mật khẩu!";
+check=false;
+}
+else
+{
+document.getElementById("repass").innerHTML="";
+}
+}
+//file
+var file=document.getElementById("myfile1").value;
+if(file=="")
+{
+document.getElementById("file").innerHTML="Vui lòng chọn file hình ảnh đại diện!";
+check=false;
+}
+else
+{
+document.getElementById("file").innerHTML="";
+}
+if(check == false) 
+{
+    
+    document.getElementById("thongbao").innerHTML="Bạn nhập thông tin sai vui lòng kiểm tra lại!";
+}
+return check;
+
+}
+
+function ktten(str)
+{
+var xmlhttp;
+xmlhttp=new XMLHttpRequest();
+xmlhttp.onreadystatechange=function() {
+if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+document.getElementById("user").innerHTML=xmlhttp.responseText;
+    if(xmlhttp.responseText!="")    check =false;
+    else check =true;
+    
+} }
+
+xmlhttp.open("GET","ktten.php?ten="+str,true);
+xmlhttp.send();
+}
+</script>
+</body>
+</html>

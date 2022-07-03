@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Bài 2</title>
+</head>
+
+<body>
+	<h3 style="color:red;">Đăng kí tài khoản mới</h3>
+	<p>Vui lòng điền đầy đủ thông tin bên dưới để đăng kí tài khoản mới</p>
+	<table border="1" cellspacing="0" cellpadding="10">
+		<tr>
+			<td>
+				<form style="background-color: #DDD6D6" method="post">
+				<table cellpadding="12">
+					<tr>
+						<td><label for="ten">Tên đăng nhập:</label></td>
+						<td><input type="text" name="ten" id="ten"></td>
+					</tr>
+					<tr>
+						<td><label for="matkhau">Mật khẩu:</label></td>
+						<td><input type="password" name="matkhau" id="matkhau"></td>
+					</tr>
+					<tr>
+						<td><label for="matkhaugolai">Gõ lại mật khẩu:</label></td>
+						<td><input type="password" name="matkhaugolai" id="matkhaugolai"></td>
+					</tr>
+					<tr>
+						<td><label for="myfile">Hình đại diện:</label></td>
+						<td><input type="file" name="myfile" id="myfile"></td>
+					</tr>
+					<tr>
+						<td><label for="gioitinh">Giới tính:</label></td>
+						<td>
+							<input type="radio" name="gioitinh" value="nam">Nam
+							<input type="radio" name="gioitinh" value="nu">Nữ
+							<input type="radio" name="gioitinh" value="khac">Khác
+						</td>
+					</tr>
+					<tr>
+					    <td><label>Nghề nghiệp</label></td>
+					    <td>
+					        <select name="nghe">
+					            <option value="hocsinh">Học sinh</option>
+					            <option value="sinhvien">Sinh viên</option>
+					            <option value="giaovien">Giáo viên</option>
+					            <option value="khac">Khác</option>
+					        </select>
+					    </td>
+					</tr>
+					<tr>
+						<td><lalel for="danhsach[]">Sở thích:</lalel></td>
+						<td>
+							<input type="checkbox" name="danhsach[]" value="thethao">Thể thao
+							<input type="checkbox" name="danhsach[]" value="dulich">Du lịch
+							<input type="checkbox" name="danhsach[]" value="amnhac">Âm nhạc
+							<input type="checkbox" name="danhsach[]" value="thoitrang">Thời trang
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<input type="submit" value="Đăng kí" align="middle">
+							<input type="reset" value="Làm lại">
+						</td>
+					</tr>
+					
+				</table>
+					
+				</form>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
